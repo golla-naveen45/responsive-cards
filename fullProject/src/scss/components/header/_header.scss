@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "sass:color";
+@use "../mixins/mixins" as *;
+@use "../variables/variables" as *;
+
+header {
+  background-color: $white;
+  box-shadow: 0 4px 8px $header-shadow;
+  border-radius: 8px;
+  padding: math.div($spacing * 3, 2);
+
+  margin-bottom: math.div($spacing * 2, 2);
+
+  div {
+    width: 100%;
+    text-align: center;
+
+    a {
+      @include links;
+      font-weight: 700;
+      font-size: 1.5rem;
+
+    }
+  }
+}

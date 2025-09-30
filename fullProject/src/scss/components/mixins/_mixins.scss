@@ -1,0 +1,78 @@
+@use "sass:color";
+@use "../variables/variables" as *;
+
+$xs: 480px;
+$sm: 768px;
+$md: 992px;
+$lg: 1024px;
+$xl: 1200px;
+$xxl: 1440px;
+
+@mixin respond-up($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: $xs) {
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (min-width: $sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $xl) {
+      @content;
+    }
+  } @else if $breakpoint == xxl {
+    @media (min-width: $xxl) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: `#{$breakpoint}`.";
+  }
+}
+
+@mixin displayFlex {
+  display: flex;
+  user-select: none;
+}
+
+@mixin displayDirection($direction: column) {
+  flex-direction: $direction;
+}
+
+@mixin btn {
+  margin-top: $spacing;
+  padding: 0.5rem 1rem;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+@mixin links {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -15%);
+  }
+}
+
+@mixin card-img {
+    width: $width-full;
+    height: auto;
+    display: block;
+}

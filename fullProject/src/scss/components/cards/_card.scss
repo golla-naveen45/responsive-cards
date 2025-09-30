@@ -1,0 +1,53 @@
+@use "../variables/variables" as *;
+@use "../mixins/mixins" as *;
+
+.product-grid {
+  @include displayFlex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: $spacing;
+
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: $spacing;
+    width: $width-full;
+    box-shadow: $cardbox-shadow;
+    transition: transform 0.3s ease;
+
+    @include displayFlex;
+    @include displayDirection;
+
+    img {
+      @include card-img;
+      border-radius: 4px;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    h3 {
+      margin: $spacing 0 0.5rem;
+    }
+
+    .price {
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .btn-cart {
+      @include btn;
+    }
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include respond-up(sm) {
+      width: calc(50% - #{$spacing});
+    }
+    @include respond-up(md) {
+      width: calc(33.333% - #{$spacing});
+    }
+  }
+}
